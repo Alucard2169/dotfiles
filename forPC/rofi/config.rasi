@@ -1,0 +1,17 @@
+configuration {
+ modi: "window,drun,ssh,combi";
+ font: "hack 10";
+ combi-modi: "window,drun,ssh";
+ icon-theme: "Papirus";
+ show-icons: true;
+ application-fallback-icon: "Tila";
+ window-thumbnail:true;
+ slidebar-mode: true;
+ 
+}
+
+
+
+
+
+@theme "/usr/share/rofi/themes/custom_1.rasi"
