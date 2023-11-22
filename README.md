@@ -17,7 +17,7 @@
 
 ---
 
-* `pasystray` for system tray applet (pulseaudio)
+* `pasystray` is used in the screenshot for volume control, but right now I am using `volumeicon`
 
 * `nm-applet` for system tray applet (network)
 
