@@ -1,0 +1,52 @@
+
+
+
+.xfce4-panel .tasklist .toggle {
+	margin-left: 5px;
+  padding-right: 5px;
+}
+
+.xfce4-panel .tasklist .toggle {
+   background-color: white;
+   color: black;
+   border-radius: 3px;
+   
+}
+
+#xfce4-notification-plugin,
+#xfce4-power-manager-plugin,
+#clock-button,
+#indicator-button,
+#pulseaudio-button{
+   background-color: white;
+   margin-left: 5px;
+   color: black;
+   padding: 0 5px;
+   border-radius: 5px;
+   transition: all 100ms ease-in-out;
+}
+
+
+#xfce4-power-manager-plugin:hover,
+#clock-button:hover,
+#indicator-button:hover,
+#pulseaudio-button:hover{
+   background-color: black;
+   color: white;
+}
+
+#xfce4-notification-plugin:hover{
+   background-color: rgb(221, 221, 8);
+}
+
+.xfce4-panel widget grid button.flat.toggle:hover { 
+   font-family: 'Sans Bold'; 
+   font-size: 16px;
+ }
+ .xfce4-panel widget grid button.flat.toggle:checked { 
+   font-family: 'Sans Bold';
+   font-size: 16px;
+   border-bottom: 2px solid purple;
+   padding: 10px;
+
+ }
