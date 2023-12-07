@@ -42,8 +42,15 @@ live_config_reload: true
 shell:
   program : /usr/bin/zsh
 
+font:
+  normal:
+    family: monospace
+    style: Regular
+  bold:
+    family: monospace
+    style: bold
 
-
+  size: 8
 
 
 
