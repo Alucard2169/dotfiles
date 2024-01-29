@@ -1,9 +1,3 @@
-#!/bin/bash
-
-# Check if volumeicon is already running
-# if ! pgrep -x "volumeicon" >/dev/null; then
-#	 volumeicon &
-# fi
 #!/bin/sh
 
 run() {

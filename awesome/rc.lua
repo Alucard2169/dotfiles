@@ -102,11 +102,12 @@ local themes = {
 local chosen_theme = themes[4]
 local modkey = "Mod4"
 local altkey = "Mod1"
-local terminal = "alacritty"
+local terminal = "kitty"
 local vi_focus = false -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev = true -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor = os.getenv("EDITOR") or "nvim"
 local browser = "firefox"
+local file_manager = "thunar"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "󰮯 ", "󰊠 ", "󰮯 ", "󰊠 ", "󰮯 ", "󰊠 ", "󰮯 ", "󰊠 " }
@@ -278,9 +279,10 @@ globalkeys = mytable.join(
 	end, { description = "destroy all notifications", group = "hotkeys" }),
 	-- Take a screenshot
 	-- https://github.com/lcpz/dots/blob/master/bin/screenshot
-	awful.key({ altkey }, "p", function()
-		awful.spawn.with_shell("scrot")
-	end, { description = "take a screenshot", group = "hotkeys" }),
+
+	awful.key({ modkey }, "Print", function()
+		awful.util.spawn("scrot -e 'mv $f ~/Pictures/screenshots/ 2>/dev/null'", false)
+	end),
 
 	-- X screen locker
 	awful.key({ altkey, "Control" }, "l", function()
@@ -406,9 +408,11 @@ globalkeys = mytable.join(
 	awful.key({ modkey }, "Return", function()
 		awful.spawn(terminal)
 	end, { description = "open a terminal", group = "launcher" }),
+	awful.key({ modkey }, "e", function()
+		awful.spawn(file_manager)
+	end, { description = "open file manager", group = "launcher" }),
 	awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
 	awful.key({ modkey, "Shift" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
-
 	awful.key({ modkey, altkey }, "l", function()
 		awful.tag.incmwfact(0.05)
 	end, { description = "increase master width factor", group = "layout" }),
@@ -540,6 +544,16 @@ globalkeys = mytable.join(
 		awful.spawn(browser)
 	end, { description = "run browser", group = "launcher" }),
 
+	-- Player
+	awful.key({ "Control" }, "KP_Right", function()
+		os.execute("playerctl next")
+	end, { description = "Play next", group = "player" }),
+	awful.key({ "Control" }, "KP_Left", function()
+		os.execute("playerctl previous")
+	end, { description = "Play Previous", group = "player" }),
+	awful.key({ "Control" }, "KP_Insert", function()
+		os.execute("playerctl play-pause")
+	end, { description = "Play/Pause player", group = "player" }),
 	-- Default
 	--[[ Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
