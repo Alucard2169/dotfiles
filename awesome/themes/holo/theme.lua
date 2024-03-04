@@ -155,8 +155,8 @@ end)))
 theme.volume = lain.widget.alsabar({
 	notification_preset = { font = "eldur 9" },
 	--togglechannel = "IEC958,3",
-	width = dpi(80),
-	height = dpi(10),
+	width = dpi(50),
+	height = dpi(5),
 	border_width = dpi(0),
 	colors = {
 		background = "#383838",

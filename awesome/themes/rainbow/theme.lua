@@ -17,21 +17,21 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.default_dir                               = require("awful.util").get_themes_dir() .. "default"
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/rainbow"
-theme.wallpaper                                 = theme.dir .. "/wall.png"
-theme.font                                      = "Terminus 10.5"
-theme.fg_normal                                 = "#9E9E9E"
-theme.fg_focus                                  = "#EBEBFF"
-theme.bg_normal                                 = "#242424"
+theme.wallpaper                                 = "~/wall/active_wallpaper.png"
+theme.font                                      = "carlito bold 11"
+theme.fg_normal                                 = "#FF004D"
+theme.fg_focus                                  = "#FAEF5D"
+theme.bg_normal                                 = "#1D2B53"
 theme.bg_focus                                  = "#242424"
-theme.fg_urgent                                 = "#000000"
+theme.fg_urgent                                 = "#F57D1F"
 theme.bg_urgent                                 = "#FFFFFF"
-theme.border_width                              = dpi(1)
+theme.border_width                              = dpi(0)
 theme.border_normal                             = "#242424"
 theme.border_focus                              = "#EBEBFF"
-theme.taglist_fg_focus                          = "#EDEFFF"
-theme.taglist_bg_focus                          = "#242424"
-theme.menu_height                               = dpi(16)
-theme.menu_width                                = dpi(140)
+theme.taglist_fg_focus                          = "#FAEF5D"
+theme.taglist_bg_focus                          = "#1D2B53"
+theme.menu_height                               = dpi(20)
+theme.menu_width                                = dpi(180)
 theme.ocol                                      = "<span color='" .. theme.fg_normal .. "'>"
 theme.tasklist_sticky                           = theme.ocol .. "[S]</span>"
 theme.tasklist_ontop                            = theme.ocol .. "[T]</span>"
@@ -43,7 +43,7 @@ theme.awesome_icon                              = theme.dir .."/icons/awesome.pn
 theme.menu_submenu_icon                         = theme.dir .."/icons/submenu.png"
 theme.taglist_squares_sel                       = theme.dir .. "/icons/square_sel.png"
 theme.taglist_squares_unsel                     = theme.dir .. "/icons/square_unsel.png"
-theme.useless_gap                               = dpi(8)
+theme.useless_gap                               = dpi(4)
 theme.layout_txt_tile                           = "[t]"
 theme.layout_txt_tileleft                       = "[l]"
 theme.layout_txt_tilebottom                     = "[b]"
@@ -96,7 +96,7 @@ mytextclock.font = theme.font
 theme.cal = lain.widget.cal({
     attach_to = { mytextclock },
     notification_preset = {
-        font = "Terminus 11",
+        font = "fantasquesansmono 11",
         fg   = white,
         bg   = theme.bg_normal
     }
@@ -247,7 +247,7 @@ function theme.at_screen_connect(s)
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(18), bg = theme.bg_normal, fg = theme.fg_normal })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(20), bg = theme.bg_normal, fg = theme.fg_normal })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -257,12 +257,12 @@ function theme.at_screen_connect(s)
             first,
             s.mytaglist,
             spr,
-            s.mytxtlayoutbox,
+           -- s.mytxtlayoutbox,
             --spr,
-            s.mypromptbox,
+            -- s.mypromptbox,
             spr,
-        },
-        s.mytasklist, -- Middle widget
+        },s.mypromptbox,
+       -- s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),

@@ -99,7 +99,7 @@ local themes = {
 	"vertex", -- 10
 }
 
-local chosen_theme = themes[4]
+local chosen_theme = themes[8]
 local modkey = "Mod4"
 local altkey = "Mod1"
 local terminal = "kitty"
@@ -554,10 +554,15 @@ globalkeys = mytable.join(
 	awful.key({ "Control" }, "KP_Insert", function()
 		os.execute("playerctl play-pause")
 	end, { description = "Play/Pause player", group = "player" }),
-	-- Default
-	--[[ Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"}),
+
+
+
+
+
+				-- Default
+		                                                                                     	--[[ Menubar
+    	end, { description = "Play/Pause player", group = "player" }),awful.key({ modkey }, "p", function() menubar.show() end,
+    	                                                                        {description = "show the menubar", group = "launcher"}),
     --]]
 	--[[ dmenu
     awful.key({ modkey }, "x", function ()
